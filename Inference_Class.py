@@ -14,7 +14,6 @@ class Inference():
         load_model = Load()
         model = load_model.load_model(path=self.path)
         images = load_model.preprocess_image(images)
-        print(images.shape)
         predictions = model.predict(images)
         predictions = np.round(predictions, decimals=3)
         numeric_preds = predictions

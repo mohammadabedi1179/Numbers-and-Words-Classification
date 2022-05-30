@@ -5,6 +5,8 @@ import sklearn.metrics
 import pandas as pd
 import glob
 import cv2
+import os
+import shutil
 
 class Load():
     def __init__(self):
@@ -131,7 +133,7 @@ class Load():
     def preprocess_image(self, images_list):
         
         images = np.zeros([len(images_list), 32, 32, 3])
-
+        os.mkdir('tmp/images')
         for i in range(len(images_list)):
             cv2.imwrite(f'tmp/images/{i}.jpg', images_list[i])
             image = cv2.imread(f'tmp/images/{i}.jpg')
@@ -140,5 +142,6 @@ class Load():
                 image = cv2.resize(image, (32, 32))
             image_array = np.asarray(image)
             images[i, :, :, :] = image_array
+        shutil.rmtree('tmp/images')
 
         return images
