@@ -14,5 +14,5 @@ def image_to_list(images_path, type='jpg'):
         images.append(image_array)
 
     return images
-images = image_to_list('model/valid/numeric')
+images = image_to_list('Data/valid/numeric')
 print(Inference('tmp/models/checkpoint_alpha=0.01_bn_aug(rc)_do(1)').getScores(images=images))

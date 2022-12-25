@@ -1,4 +1,4 @@
-from train import Train
+from Model.train import Train
 import tensorflow as tf
 import numpy as np
 import sklearn.metrics

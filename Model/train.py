@@ -2,11 +2,10 @@ import sys
 import tensorflow as tf
 from tensorflow.keras.layers import Dense, Conv2D, ReLU, BatchNormalization, Dropout, DepthwiseConv2D, Add, Flatten
 from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.initializers import glorot_uniform
 from tensorflow.keras import Input, Model
 from tensorflow.keras.preprocessing import image_dataset_from_directory
 import matplotlib.pyplot as plt
-from tensorflow.keras.layers.experimental.preprocessing import RandomContrast
+from tensorflow.keras.layers import RandomContrast
 from tensorflow.keras.losses import BinaryCrossentropy
 from tensorflow.keras.callbacks import ModelCheckpoint
 
@@ -104,7 +103,7 @@ class Train():
         x = Train.block_a(x, 2, 24)
         x = Train.block_b(x, 2, 32)
         x = Flatten()(x)
-        x = Dense(1, activation='sigmoid', kernel_initializer=glorot_uniform(seed=0))(x)
+        x = Dense(1, activation='sigmoid')(x)
         model = Model(inputs=x_input, outputs=x)
         
         return model

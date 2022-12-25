@@ -1,6 +1,4 @@
-#python3
-import sys
-from load import Load
+from Model.load import Load
 import numpy as np
 import pandas as pd
 
